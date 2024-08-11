@@ -17,11 +17,10 @@
             
             <section class="todo-list">
 
-
                 <h3>Lista de Tarefas</h3>
                 <div class="all-todos"
-                    v-for="task in tasks">
-                    <div class="single-todo done">
+                     v-for="task in tasks">
+                    <div class="single-todo" :class="{ done : task.isDone}">
                         <p>{{task.name}}</p>
                     </div>
                 </div>

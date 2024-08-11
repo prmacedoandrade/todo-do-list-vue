@@ -1,7 +1,7 @@
 var tasks = [
     {
         "name": "Aprender HTML, CSS e Javascript",
-        "isDone": false
+        "isDone": true
     },
     {
         "name": "Aprender o básico de Vue JS",
