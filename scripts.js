@@ -1,32 +1,14 @@
-var tasks = [
-    {
-        "text": "Aprender HTML, CSS e Javascript",
-        "isDone": true
-    },
-    {
-        "text": "Aprender o básico de Vue JS",
-        "isDone": false
-    },
-    {
-        "text": "Completar o desafio de Vue JS com excelência",
-        "isDone": false
-    }
-];
-
 const TodoApp = {
 
     data(){
         return {
-            tasks: window.tasks,
+            tasks: [],
             newTask:{
                 isDone: false
             }
         }
     },
     methods:{
-        markAsDone(task){
-            task.isDone = !task.isDone
-        },
         addTask: function (){
 
             if(this.newTask.text){
