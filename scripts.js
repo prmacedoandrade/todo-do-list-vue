@@ -1,26 +1,47 @@
 var tasks = [
     {
-        "name": "Aprender HTML, CSS e Javascript",
+        "text": "Aprender HTML, CSS e Javascript",
         "isDone": true
     },
     {
-        "name": "Aprender o básico de Vue JS",
+        "text": "Aprender o básico de Vue JS",
         "isDone": false
     },
     {
-        "name": "Completar o desafio de Vue JS com excelência",
+        "text": "Completar o desafio de Vue JS com excelência",
         "isDone": false
     }
 ];
 
-const TodoList = {
+const TodoApp = {
 
     data(){
         return {
-            tasks: window.tasks
+            tasks: window.tasks,
+            newTask:{
+                isDone: false
+            }
+        }
+    },
+    methods:{
+        markAsDone(task){
+            task.isDone = !task.isDone
+        },
+        addTask: function (){
+
+            if(this.newTask.text){
+                this.tasks.push(this.newTask);
+                this.newTask = {
+                    isDone: false
+                };
+            }else{
+                alert("Todo text is required")
+            }
+
         }
     }
 
+
 };
 
-Vue.createApp(TodoList).mount('#app');
+Vue.createApp(TodoApp).mount('#app');
