@@ -1,43 +1,34 @@
 const TodoApp = {
 
-    data(){
+    data() {
         return {
             tasks: [],
-            newTask:{
+            newTask: {
                 isDone: false
             }
         }
     },
-    methods:{
-        addTask: function (){
+    methods: {
+        addTask: function () {
 
-            if(this.newTask.text){
+            if (this.newTask.text) {
                 this.tasks.push(this.newTask);
                 this.newTask = {
                     isDone: false
                 };
-
-                localStorage.setItem("taks", JSON.stringify(this.tasks));
-
-
-            }else{
+                localStorage.setItem("tasks", JSON.stringify(this.tasks));
+            } else {
                 alert("Todo text is required")
             }
 
+        },
+        storeTasks(){
+            localStorage.setItem("tasks", JSON.stringify(this.tasks));
         }
     },
-    beforeCreate(){
-        console.log("BEFORE CREATE");
-    },
-    created(){
-        console.log("created");
-    },
-    beforeUpdate(){
-        console.log("BEFORE UPDATE");
+    created() {
+        this.tasks = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : this.tasks;
     }
-
-
-
 };
 
 Vue.createApp(TodoApp).mount('#app');
